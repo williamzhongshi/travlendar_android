@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "398132131623",
+    "project_id": "travlendar-185302"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:398132131623:android:40bf73b920f28e99",
+        "android_client_info": {
+          "package_name": "com.example.travlendar_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "398132131623-n93034t1rqs708t4v0a6fc4erk5n8rjk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.travlendar_android",
+            "certificate_hash": "eaec189c797e80d69719366c42f7d5feda1570bf"
+          }
+        },
+        {
+          "client_id": "398132131623-hnumu8e8jl3008ppqm8tbbl4eil5cord.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwkyUG7gwfJRGIb0pOtqFdHKiDmb-_7Aw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
