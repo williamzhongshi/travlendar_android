@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.travlendar_android.CreateEvent">
+    tools:context="aptproject.travlendarapp.CreateEvent">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:orientation="vertical" >
         <EditText
             android:id="@+id/eventName"
             android:layout_width="wrap_content"
@@ -116,7 +114,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Car"
-                android:checked="true" />
+                 />
 
             <RadioButton
                 android:id="@+id/radioWalk"
@@ -153,6 +151,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create Event"
-            android:onClick="SendJSON"/>
+            android:onClick="sendJSON"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
