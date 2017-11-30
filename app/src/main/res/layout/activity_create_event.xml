@@ -126,19 +126,19 @@
                 android:id="@+id/radioBike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bike" />
+                android:text="Bicycling" />
 
             <RadioButton
                 android:id="@+id/radioPublicTransit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Public Transit" />
+                android:text="Transit" />
 
             <RadioButton
-                android:id="@+id/radioCab"
+                android:id="@+id/radioFastest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Taxicab/Shared" />
+                android:text="Fastest" />
 
 
 

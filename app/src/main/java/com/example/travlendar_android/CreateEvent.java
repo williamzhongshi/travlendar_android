@@ -61,8 +61,9 @@ public class CreateEvent extends AppCompatActivity {
         int selectedId = radioTravel.getCheckedRadioButtonId();
         //Toast.makeText(this, "Selected Id:" + selectedId, Toast.LENGTH_SHORT).show();
         // find the radiobutton by returned id
-        radioTravelButton = (RadioButton) findViewById(R.id.radioCab);
-        String travelBy = radioTravelButton.getText().toString();
+        radioTravel = (RadioGroup) findViewById(R.id.radioTravel);
+        String travelBy = ((RadioButton)findViewById(radioTravel.getCheckedRadioButtonId())).getText().toString();
+        //String travelBy = radioTravelButton.getText().toString();
 
         String jsonString = "{ name: '" + eventName + "', address: '" + Location + "', eventStart: '" + eventStart + "', eventEnd: '" + eventEnd + "',travel: '" + travelBy + "'}";
         Log.e("JSONevent",jsonString);
@@ -86,7 +87,7 @@ public class CreateEvent extends AppCompatActivity {
                 long lngEventStart = dstart.getTime();
                 long lngEventEnd = dend.getTime();
 
-                addEvent(eventName,Location,lngEventStart,lngEventEnd);
+                //addEvent(eventName,Location,lngEventStart,lngEventEnd);
             } catch (ParseException e) {
                 e.printStackTrace();
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -104,7 +105,7 @@ public class CreateEvent extends AppCompatActivity {
 
 
 
-        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
 
     }
 
