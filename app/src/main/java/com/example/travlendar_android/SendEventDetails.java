@@ -24,11 +24,12 @@ public class SendEventDetails  extends AsyncTask<String, Void, String> {
 
             httpURLConnection = (HttpURLConnection) new URL(params[0]).openConnection();
             httpURLConnection.setRequestMethod("POST");
-
+            httpURLConnection.setRequestProperty("Content-Type", "application/json");
             httpURLConnection.setDoOutput(true);
 
             DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
-            wr.writeBytes("PostData=" + params[1]);
+            Log.d("params1", params[1]);
+            wr.writeBytes(params[1]);
             wr.flush();
             wr.close();
 

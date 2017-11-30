@@ -73,9 +73,11 @@ public class CreateEvent extends AppCompatActivity {
             postData.put("address", Location);
             postData.put("eventStart", eventStart);
             postData.put("eventEnd", eventEnd);
-            postData.put("travel", radioTravelButton);
+            postData.put("travel", travelBy);
 
-            //new SendEventDetails().execute("url to server", postData.toString());
+            Log.e("postData", postData.toString());
+
+            new SendEventDetails().execute("http://10.0.2.2:8080/api/create_event/"+"hello", postData.toString());
 
             SimpleDateFormat f = new SimpleDateFormat("MM-dd-yyyy HH:mm");
             try {
@@ -136,8 +138,6 @@ public class CreateEvent extends AppCompatActivity {
         dateFragment.setArguments(args);
         dateFragment.show(getSupportFragmentManager(),"datePicker");
     }
-
-
 
     public void addEvent(String title, String location, long begin, long end) {
          Calendar cal = Calendar.getInstance();
