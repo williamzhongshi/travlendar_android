@@ -1,4 +1,5 @@
-package aptproject.travlendarapp;
+package com.example.travlendar_android;
+
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -11,7 +12,7 @@ import android.text.format.DateFormat;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-
+import com.example.travlendar_android.R;
 
 
 /**

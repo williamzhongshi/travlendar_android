@@ -1,4 +1,4 @@
-package aptproject.travlendarapp;
+package com.example.travlendar_android;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +20,8 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import com.example.travlendar_android.R;
 
 public class CreateEvent extends AppCompatActivity {
 

@@ -1,4 +1,5 @@
-package aptproject.travlendarapp;
+package com.example.travlendar_android;
+
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -9,6 +10,7 @@ import android.support.v4.app.DialogFragment;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
+import com.example.travlendar_android.R;
 
 /**
  * Created by mukraswa on 11/27/2017.
