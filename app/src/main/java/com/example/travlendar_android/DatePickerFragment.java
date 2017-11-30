@@ -1,4 +1,4 @@
-package com.example.travlendar_android;
+package aptproject.travlendarapp;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -47,7 +47,7 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
              //Set a message for user
         //Display the user changed time on TextView
-        tv.setText(  String.valueOf(month + 1)+ "/" + String.valueOf(day)  + "/" + String.valueOf(year));
+        tv.setText(  String.valueOf(month + 1)+ "-" + String.valueOf(day)  + "-" + String.valueOf(year));
 
     }
 

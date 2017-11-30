@@ -1,4 +1,4 @@
-package com.example.travlendar_android;
+package aptproject.travlendarapp;
 
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -42,6 +42,6 @@ public class TimePickerFragment extends DialogFragment
 
 
        //Display the user changed time on TextView
-        tv.setText(String.valueOf(hourOfDay) + " : " + String.valueOf(minute) + "\n");
+        tv.setText(String.valueOf(hourOfDay) + ":" + String.valueOf(minute) + "\n");
     }
 }
