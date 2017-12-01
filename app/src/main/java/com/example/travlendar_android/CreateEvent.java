@@ -64,48 +64,51 @@ public class CreateEvent extends AppCompatActivity {
         int selectedId = radioTravel.getCheckedRadioButtonId();
         //Toast.makeText(this, "Selected Id:" + selectedId, Toast.LENGTH_SHORT).show();
         // find the radiobutton by returned id
-        radioTravel = (RadioGroup) findViewById(R.id.radioTravel);
-        String travelBy = ((RadioButton)findViewById(radioTravel.getCheckedRadioButtonId())).getText().toString();
-        //String travelBy = radioTravelButton.getText().toString();
+        radioTravelButton = (RadioButton) findViewById(selectedId);
+        String travelBy = radioTravelButton.getText().toString();
 
-        String jsonString = "{ name: '" + eventName + "', address: '" + Location + "', eventStart: '" + eventStart + "', eventEnd: '" + eventEnd + "',travel: '" + travelBy + "'}";
-        Log.e("JSONevent",jsonString);
+        //Validate the User Input
+        if (ValidateInput(eventName,Location, txtStartDate.getText().toString(), txtStartTime.getText().toString(), txtEndDate.getText().toString(), txtEndTime.getText().toString())) {
 
-        JSONObject postData = new JSONObject();
-        try {
-            postData.put("name", eventName);
-            postData.put("address", Location);
-            postData.put("eventStart", eventStart);
-            postData.put("eventEnd", eventEnd);
-            postData.put("travel", travelBy);
 
-            Log.e("postData", postData.toString());
+            String jsonString = "{ name: '" + eventName + "', address: '" + Location + "', eventStart: '" + eventStart + "', eventEnd: '" + eventEnd + "',travel: '" + travelBy + "'}";
+            Log.e("JSONevent", jsonString);
 
-            new SendEventDetails().execute("http://10.0.2.2:8080/api/create_event/"+user_email, postData.toString());
-
-            SimpleDateFormat f = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+            JSONObject postData = new JSONObject();
             try {
-                Date dstart = f.parse(eventStart);
-                Date dend = f.parse(eventEnd);
-                long lngEventStart = dstart.getTime();
-                long lngEventEnd = dend.getTime();
+                postData.put("name", eventName);
+                postData.put("address", Location);
+                postData.put("eventStart", eventStart);
+                postData.put("eventEnd", eventEnd);
+                postData.put("travel", travelBy);
 
-                //addEvent(eventName,Location,lngEventStart,lngEventEnd);
-            } catch (ParseException e) {
+                Log.e("postData", postData.toString());
+
+                new SendEventDetails().execute("http://10.0.2.2:8080/api/create_event/" + user_email, postData.toString());
+
+                SimpleDateFormat f = new SimpleDateFormat("MM-dd-yyyy HH:mm");
+                try {
+                    Date dstart = f.parse(eventStart);
+                    Date dend = f.parse(eventEnd);
+                    long lngEventStart = dstart.getTime();
+                    long lngEventEnd = dend.getTime();
+
+                    addEvent(eventName,Location,lngEventStart,lngEventEnd);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+
+            } catch (JSONException e) {
                 e.printStackTrace();
-                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                CharSequence text = e.getMessage();
+
+                Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
+
             }
-
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-            CharSequence text = e.getMessage();
-
-            Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
-
         }
-
 
 
         //Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
@@ -154,4 +157,41 @@ public class CreateEvent extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }    }
+
+
+    public boolean ValidateInput(String name,String address,String sdate, String stime, String edate, String etime) {
+        String errMsg = "";
+        Validations val = new Validations();
+        boolean IsValid = true;
+
+
+        if (!val.isNameValid(name)) {
+            errMsg += "Please enter an Event Name";
+            IsValid = false;
+        }
+
+        if (!val.isLocationValid(address)) {
+            errMsg += "Please enter a Location";
+            IsValid = false;
+        }
+
+        if (!val.isStartDateValid(sdate,stime)) {
+            errMsg += "Please enter a Valid Start Date and Time";
+            IsValid = false;
+        }
+
+        if (!val.isEndDateValid(edate,etime)) {
+            errMsg += "Please enter a Valid End Date and Time";
+            IsValid = false;
+        }
+
+        if (IsValid) {
+            return true;
+        }
+        else {
+            Toast.makeText(this, errMsg, Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+    }
 }
