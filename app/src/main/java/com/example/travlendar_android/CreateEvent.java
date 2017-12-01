@@ -24,7 +24,7 @@ import java.util.Date;
 import com.example.travlendar_android.R;
 
 public class CreateEvent extends AppCompatActivity {
-
+    String user_email = null;
     private RadioGroup radioTravel;
     private RadioButton radioTravelButton;
 
@@ -32,7 +32,10 @@ public class CreateEvent extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-
+        Bundle extras = getIntent().getExtras();
+        if(extras != null){
+            user_email = extras.getString("EMAIL");
+        }
         radioTravel = (RadioGroup) findViewById(R.id.radioTravel);
     }
 
@@ -78,7 +81,7 @@ public class CreateEvent extends AppCompatActivity {
 
             Log.e("postData", postData.toString());
 
-            new SendEventDetails().execute("http://10.0.2.2:8080/api/create_event/"+"hello", postData.toString());
+            new SendEventDetails().execute("http://10.0.2.2:8080/api/create_event/"+user_email, postData.toString());
 
             SimpleDateFormat f = new SimpleDateFormat("MM-dd-yyyy HH:mm");
             try {
